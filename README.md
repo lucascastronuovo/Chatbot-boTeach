@@ -11,6 +11,7 @@
 **boTeach** es un chatbot educativo que desarrollé como **Trabajo Final de Grado** de la carrera de Ingeniería Informática. El proyecto consiste en un **tutor virtual inteligente** capaz de acompañar a los estudiantes durante su proceso de estudio **utilizando exclusivamente sus propios apuntes en PDF**.
 
 A diferencia de los chatbots tradicionales, boTeach **no entrega respuestas directas**. Su enfoque pedagógico está inspirado en el rol de un docente: 
+
 **Enseñar a pensar**, guiando al estudiante mediante pistas, fomentando la reflexión y evaluando su comprensión real del contenido.
 
 ---
