@@ -1,7 +1,7 @@
 # boTeach – Tutor Virtual Educativo basado en IA
 
 ## Trabajo Final de Grado – Ingeniería Informática  
-**Presentado y defendido el lunes 15**  
+**Presentado y defendido el lunes 15 de diciembre del año 2025**  
 **Calificación final: 10 (diez)**
 
 ---
