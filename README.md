@@ -1,83 +1,83 @@
-# 📘 boTeach – Tutor Virtual Educativo basado en IA
+# boTeach – Tutor Virtual Educativo basado en IA
 
-## 🧑‍🎓 Trabajo Final de Grado – Ingeniería Informática  
-📅 **Presentado y defendido el lunes 15**  
-🏆 **Calificación final: 10 (diez)**
+## Trabajo Final de Grado – Ingeniería Informática  
+**Presentado y defendido el lunes 15**  
+**Calificación final: 10 (diez)**
 
 ---
 
-## 📖 Introducción
+## Introducción
 
-**boTeach** es un chatbot educativo desarrollado como **Trabajo Final de Grado** de la carrera de Ingeniería Informática. El proyecto consiste en un **tutor virtual inteligente** capaz de acompañar a los estudiantes durante su proceso de estudio **utilizando exclusivamente sus propios apuntes en PDF**.
+**boTeach** es un chatbot educativo que desarrollé como **Trabajo Final de Grado** de la carrera de Ingeniería Informática. El proyecto consiste en un **tutor virtual inteligente** capaz de acompañar a los estudiantes durante su proceso de estudio **utilizando exclusivamente sus propios apuntes en PDF**.
 
 A diferencia de los chatbots tradicionales, boTeach **no entrega respuestas directas**. Su enfoque pedagógico está inspirado en el rol de un docente:  
-👉 **enseñar a pensar**, guiando al estudiante mediante pistas, fomentando la reflexión y evaluando su comprensión real del contenido.
+**enseñar a pensar**, guiando al estudiante mediante pistas, fomentando la reflexión y evaluando su comprensión real del contenido.
 
 ---
 
-## 🎯 Problema que aborda
+## Problema que aborda
 
 La educación virtual y el estudio autónomo presentan desafíos persistentes:
 
-- ❌ Menor interacción docente–estudiante  
-- ⏳ Tiempos de respuesta lentos  
-- 📄 Dificultad para estudiar únicamente con PDFs  
-- 🧩 Falta de retroalimentación personalizada  
+- Menor interacción docente–estudiante  
+- Tiempos de respuesta lentos  
+- Dificultad para estudiar únicamente con PDFs  
+- Falta de retroalimentación personalizada  
 
 **boTeach** nace para acompañar este proceso, ofreciendo **asistencia inmediata, guiada y contextualizada**, sin reemplazar al docente.
 
 ---
 
-## 🧠 ¿Qué hace diferente a boTeach?
+## ¿Qué hace diferente a boTeach?
 
-- ✅ **Guía en lugar de responder**  
+- **Guía en lugar de responder**  
   Genera *pistas* que orientan al estudiante hacia la respuesta correcta.
 
-- ✅ **Evalúa la comprensión**  
+- **Evalúa la comprensión**  
   Compara la respuesta del alumno con la respuesta oficial usando **similitud semántica (coseno)**.
 
-- ✅ **Fidelidad estricta al PDF**  
+- **Fidelidad estricta al PDF**  
   Responde **únicamente** con información contenida en el documento cargado.
 
-- ✅ **Detecta cuando no puede responder**  
+- **Detecta cuando no puede responder**  
   Evita alucinaciones y lo comunica explícitamente.
 
-- ✅ **100% local**  
+- **100% local**  
   Funciona con un modelo ejecutado en **Ollama**, sin depender de la nube.
 
-- ✅ **Adaptable a cualquier materia**  
+- **Adaptable a cualquier materia**  
   Solo requiere un PDF como fuente de conocimiento.
 
 ---
 
-## ⚙️ Arquitectura y funcionamiento
+## Arquitectura y funcionamiento
 
 boTeach implementa una arquitectura basada en **Retrieval-Augmented Generation (RAG)**:
 
-### 1️⃣ Preprocesamiento del PDF
+### Preprocesamiento del PDF
 - Limpieza del texto  
 - División en fragmentos (*chunking*) con **LangChain**  
 - Generación de embeddings con **SentenceTransformers**
 
-### 2️⃣ Base vectorial
+### Base vectorial
 - Almacenamiento de embeddings en **ChromaDB**
 
-### 3️⃣ Recuperación
+### Recuperación
 - Búsqueda de los fragmentos más relevantes según la consulta
 
-### 4️⃣ Generación
+### Generación
 - El modelo **Gemma 7B Instruct** (ejecutado en Ollama) produce:
   - Una **pista**
   - Una **respuesta oficial**
 
-### 5️⃣ Evaluación
+### Evaluación
 - Comparación semántica entre:
   - Respuesta del estudiante  
   - Respuesta oficial del sistema
 
 ---
 
-## 🛠️ Tecnologías utilizadas
+## Tecnologías utilizadas
 
 - Python 3.9  
 - PyPDF2  
@@ -91,21 +91,21 @@ boTeach implementa una arquitectura basada en **Retrieval-Augmented Generation (
 
 ---
 
-## 📊 Resultados de la evaluación
+## Resultados de la evaluación
 
 El sistema fue evaluado con **50 preguntas** generadas a partir de un PDF educativo y **9 participantes**:
 
-- ⭐ **Fidelidad al PDF:** 30 respuestas con puntaje máximo  
-- ⭐ **Claridad de las respuestas:** 26 evaluaciones con puntaje máximo  
-- ⭐ **Pertinencia:** 24 evaluaciones con puntaje máximo  
-- ⭐ **Eficacia de las pistas:** mayoría de calificaciones entre 4 y 5  
-- ⭐ **Detección de información no disponible:** correcta en el 100% de los casos diseñados para probarlo  
+- **Fidelidad al PDF:** 30 respuestas con puntaje máximo  
+- **Claridad de las respuestas:** 26 evaluaciones con puntaje máximo  
+- **Pertinencia:** 24 evaluaciones con puntaje máximo  
+- **Eficacia de las pistas:** mayoría de calificaciones entre 4 y 5  
+- **Detección de información no disponible:** correcta en el 100% de los casos diseñados para probarlo  
 
 Estos resultados demuestran que **boTeach puede funcionar como un tutor virtual confiable**, especialmente para estudiantes que trabajan con materiales propios.
 
 ---
 
-## 🎓 Reflexión final
+## Reflexión final
 
 Este proyecto me permitió explorar cómo la **Inteligencia Artificial puede complementar la labor docente**, no reemplazarla. Herramientas como boTeach pueden contribuir a una educación más:
 
@@ -117,7 +117,7 @@ El proyecto continuará evolucionando mediante pruebas con nuevos modelos, embed
 
 ---
 
-## 👤 Autor
+## Autor
 
 **Lucas Javier Castronuovo**  
 Ingeniería Informática  
