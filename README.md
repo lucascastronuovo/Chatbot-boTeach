@@ -53,28 +53,30 @@ La educación virtual y el estudio autónomo presentan desafíos persistentes:
 
 ## Arquitectura y funcionamiento
 
-boTeach implementa una arquitectura basada en **Retrieval-Augmented Generation (RAG)**:
+boTeach implementa una arquitectura basada en **Retrieval-Augmented Generation (RAG)**, organizada en cuatro bloques principales que permiten garantizar fidelidad al contenido, guía pedagógica y ejecución completamente local.
 
-### Preprocesamiento del PDF
-- Limpieza del texto  
-- División en fragmentos (*chunking*) con **LangChain**  
-- Generación de embeddings con **SentenceTransformers**
+### 1. Preprocesamiento de documentos
+- El PDF es procesado mediante limpieza y normalización del texto.  
+- El contenido se divide en fragmentos (*chunking*).  
+- Cada fragmento se transforma en un **embedding** utilizando un modelo de embeddings.  
+- Los embeddings del PDF se almacenan en una **base de datos vectorial (ChromaDB)** para su posterior recuperación semántica.
 
-### Base vectorial
-- Almacenamiento de embeddings en **ChromaDB**
+### 2. Recuperación de la información
+- La consulta del estudiante se transforma en un embedding utilizando el mismo modelo.  
+- Se realiza una **comparación de similitud** entre el embedding del input y los embeddings almacenados del PDF.  
+- Se seleccionan los **fragmentos más relevantes**, asegurando fidelidad estricta al contenido del documento y evitando información externa.
 
-### Recuperación
-- Búsqueda de los fragmentos más relevantes según la consulta
+### 3. Generación de respuestas
+- Los fragmentos relevantes recuperados, junto con **instrucciones de comportamiento** y la consulta del usuario, se integran en un **prompt estructurado**.  
+- Un **LLM ejecutado localmente** (**Gemma 7B Instruct** mediante **Ollama**) genera:
+  - una **pista** que guía al estudiante hacia la respuesta correcta  
+  - una **respuesta oficial** basada exclusivamente en el contenido del PDF.
 
-### Generación
-- El modelo **Gemma 7B Instruct** (ejecutado en Ollama) produce:
-  - Una **pista**
-  - Una **respuesta oficial**
+### 4. Interfaz de usuario y evaluación
+- El estudiante interactúa con el sistema mediante una interfaz de input/output.  
+- El sistema puede comparar semánticamente la respuesta del estudiante con la respuesta oficial para **evaluar su nivel de comprensión**.  
+- Cuando la información solicitada no se encuentra en el documento, el sistema lo comunica explícitamente, evitando alucinaciones.
 
-### Evaluación
-- Comparación semántica entre:
-  - Respuesta del estudiante  
-  - Respuesta oficial del sistema
 
 ---
 
